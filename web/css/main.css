@@ -65,7 +65,7 @@ main > section {
 }
 
 .btn-blue {
-    background-color: rgba(0,158,227, 0.78);
+    background-color: rgba(0, 227, 15, 0.78);
     box-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15) inset;
     padding: 15px 55px;
     color: #fff;
@@ -344,9 +344,9 @@ h1.navbar-brand {
 .slide-caption {
     color: #fff;
     display: table;
-    height: 100%;
+    height: 20%;
     left: 0;
-    min-height: 100%;
+    min-height: 20%;
     position: absolute;
     text-align: center;
     top: 0;
@@ -358,6 +358,86 @@ h1.navbar-brand {
     vertical-align: middle;
     display: table-cell;
 }
+
+.slide-caption2 {
+    color: #fff;
+    display: table;
+    height: 100%;
+    left: 0;
+    min-height: 100%;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 11;
+}
+
+.slide-caption2 .caption-content {
+    vertical-align: middle;
+    display: table-cell;
+}
+
+.text-box-container {
+    text-align: center;
+  }
+.text-box {
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.824);
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    width: 20%; /* o cualquier ancho que prefiera */
+    margin: 20px auto; /* para centrar la caja horizontalmente */
+
+
+
+  }
+  #text-box-1 {
+    top: 20px;
+    left: 20px;
+  }
+  
+  #text-box-2 {
+    top: 60px;
+    right: 20px;
+  }
+  
+  #text-box-3 {
+    bottom: 20px;
+    left: 500px;
+  }
+  
+/*
+--------------Tabla-----------------
+*/
+table {
+    width: 40%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    
+  }
+  
+  th, td {
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #0000009e;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  tr:last-child td {
+    border-bottom: none;
+  }
+/*
+-------------------------------
+*/
 
 .caption-content h2 {
     color: #fff;

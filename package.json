@@ -1,0 +1,22 @@
+{
+  "name": "yk_repp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanjure/YK_repp.git"
+  },
+  "author": "@juanjure",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanjure/YK_repp/issues"
+  },
+  "homepage": "https://github.com/juanjure/YK_repp#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

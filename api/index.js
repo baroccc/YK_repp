@@ -1,7 +1,9 @@
 const express = require('express')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
+const path = require('path')
+
 
 app.use(
     express.urlencoded({
@@ -13,10 +15,14 @@ app.use(express.json({
     type: "*/*"
 }))
 
-app.get('/', (req, res)=>{
-    res.send("Hola mundo")
+
+app.use(express.static(path.join(__dirname, '/../web')));
+
+
+app.get('/home',(req,res)=>{
+    //Envia index.html a la solicitud
+    res.sendFile(path.join(__dirname, '/../web', 'index.html'));
 })
 
-app.listen(port, () => {
-    console.log(`Estoy ejecutandome en http://localhost:${port}`)
-})
+
+app.listen(port)

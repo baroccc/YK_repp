@@ -22,7 +22,8 @@ app.use(express.static(path.join(__dirname, '/../web')));
 
 app.get('/home',(req,res)=>{
     //Envia index.html a la solicitud
-    res.sendFile(path.join(__dirname, '/../web', 'index.html'));
+    //res.sendFile(path.join(__dirname, '/../web', 'index.html'));
+    res.send("QLQ, tamo al garo, o no tamo al garo?")
 })
 
 

@@ -42,6 +42,8 @@
     <body id="body">
         <script>
 
+//-------------------=|DATO 0|=-------------------
+/*
             function getID() {
                 fetch('/id')
                 .then(response => response.json())
@@ -89,13 +91,64 @@
                     document.getElementById("data_state").innerHTML = data[0].estado;
                 });
             }
+*/
+//-------------------=|DATO 0|=-------------------
 
-            setInterval(getID, 2000);
-            setInterval(getTime, 2000);
-            setInterval(getTemp, 2000);
-            setInterval(getLum, 2000);
-            setInterval(getHum, 2000);
-            setInterval(getState, 2000);
+            
+            function getState4() {
+                fetch('/read4')
+                .then(async response => response.json())
+                .then( data => {
+
+                    //dato actual
+                    document.getElementById("data_id").textContent = data[0].id;
+                    document.getElementById("data_time").textContent = data[0].hora;
+                    document.getElementById("data_temp").textContent = data[0].temperatura;
+                    document.getElementById("data_hum").textContent = data[0].humedad;
+                    document.getElementById("data_lum").textContent = data[0].luminosidad;
+                    document.getElementById("data_state").textContent = data[0].estado;
+
+                    const table = document.getElementById("salvanotas");
+
+                    while (table.rows.length > 1) {
+
+                        table.deleteRow(-1);
+
+                    }
+
+                    for (let i = 0; i < data.length; i++){
+                        let row = table.insertRow(-1);
+                        let id = row.insertCell(0);
+                        let time = row.insertCell(1);
+                        let temp = row.insertCell(2);
+                        let hum = row.insertCell(3);
+                        let lum = row.insertCell(4);
+                        let state = row.insertCell(5);
+
+                        id.innerHTML = data[i].id;
+                        time.innerHTML = data[i].hora;
+                        temp.innerHTML = data[i].temperatura;
+                        hum.innerHTML = data[i].humedad;
+                        lum.innerHTML = data[i].luminosidad;
+                        state.innerHTML = data[i].estado;
+
+
+                    }
+                    
+                    
+                });
+            }
+
+            setInterval(getState4, 2000);
+    
+            const formElement = document.getElementById("btn btn-blue btn-effect")
+            
+            formElement.addEventListener("submit", (event) =>{
+                fetch('/submit', {
+                    method: 'get',
+                    body: 1
+                })
+            })
 
         </script>
 
@@ -173,7 +226,7 @@
                         <div class="slide-caption2">
                             <div class="caption-content">
                                 <div class="stats-table">    
-                                    <table>
+                                    <table id = "salvanotas">
                                         <thead>
                                         <tr>
                                             <th>ID</th>
@@ -185,38 +238,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td id="table_id1">C11</td>
-                                            <td id="table_time1">C12</td>
-                                            <td id="table_temp1">C13</td>
-                                            <td id="table_humidity1">C14</td>
-                                            <td id="table_luminosity1">C15</td>
-                                            <td id="table_state1">C16</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="table_id2">C11</td>
-                                            <td id="table_time2">C12</td>
-                                            <td id="table_temp2">C13</td>
-                                            <td id="table_humidity2">C14</td>
-                                            <td id="table_luminosity2">C15</td>
-                                            <td id="table_state2">C16</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="table_id3">C11</td>
-                                            <td id="table_time3">C12</td>
-                                            <td id="table_temp3">C13</td>
-                                            <td id="table_humidity3">C14</td>
-                                            <td id="table_luminosity3">C15</td>
-                                            <td id="table_state3">C16</td>
-                                        </tr>
-                                        <tr>
-                                            <td id="table_id4">C11</td>
-                                            <td id="table_time4">C12</td>
-                                            <td id="table_temp4">C13</td>
-                                            <td id="table_humidity4">C14</td>
-                                            <td id="table_luminosity4">C15</td>
-                                            <td id="table_state4">C16</td>
-                                        </tr>
+                                        
                                         </tbody>
                                     </table>
                                 </div>

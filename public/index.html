@@ -40,6 +40,65 @@
     </head>
 	
     <body id="body">
+        <script>
+
+            function getID() {
+                fetch('/id')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_id").innerHTML = data[0].id;
+                });
+            }
+
+            function getTime() {
+                fetch('/timestamp')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_time").innerHTML = data[0].hora;
+                });
+            }
+
+            function getTemp() {
+                fetch('/temp')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_temp").innerHTML = data[0].temperatura;
+                });
+            }
+
+            function getLum() {
+                fetch('/luminosity')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_lum").innerHTML = data[0].luminosidad;
+                });
+            }
+
+            function getHum() {
+                fetch('/humidity')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_hum").innerHTML = data[0].humedad;
+                });
+            }
+
+            function getState() {
+                fetch('/state')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("data_state").innerHTML = data[0].estado;
+                });
+            }
+
+            setInterval(getID, 2000);
+            setInterval(getTime, 2000);
+            setInterval(getTemp, 2000);
+            setInterval(getLum, 2000);
+            setInterval(getHum, 2000);
+            setInterval(getState, 2000);
+
+        </script>
+
 
 		<!-- preloader -->
 		<div id="preloader">
@@ -88,12 +147,12 @@
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td id="table_id1">C11</td>
-                                        <td id="table_time1">C12</td>
-                                        <td id="table_temp1">C13</td>
-                                        <td id="table_humidity1">C14</td>
-                                        <td id="table_luminosity1">C15</td>
-                                        <td id="table_state1">C16</td>
+                                        <td id="data_id"></td>
+                                        <td id="data_time"></td>
+                                        <td id="data_temp"></td>
+                                        <td id="data_hum"></td>
+                                        <td id="data_lum"></td>
+                                        <td id="data_state"></td>
                                     </tr>
                                 </table>
                                 <a href="#" class="btn btn-blue btn-effect">Bomba Manual</a>
@@ -213,6 +272,5 @@
 
 		<!-- Custom Functions -->
         <script src="js/main.js"></script>
-        <script src="web/script.js"></script>
     </body>
 </html>

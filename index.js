@@ -78,9 +78,15 @@ app.get('/state', async(req, res) => {
   res.send(rows);
 });
   
+app.get('/read4', async (req, res) => {
+  const { rows } = await client.query('SELECT * FROM mediciones ORDER BY id DESC LIMIT 4');
+  res.send(rows);
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
 
 module.exports = app

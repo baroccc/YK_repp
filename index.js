@@ -3,15 +3,14 @@ const express = require('express')
 const bodyParser = require("body-parser")
 const path = require('path')
 const router = express.Router()
-const { Pool } = require('pg')
 const app = express()
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3004;
 
-//-----------------------------
-const { Client } = require('pg');
+//----------------------------
+const { Pool } = require('pg');
 
-const client = new Client({
+const pool = new Pool({
   user: 'kdrmaqhb',
   host: 'peanut.db.elephantsql.com',
   database: 'kdrmaqhb',
@@ -19,13 +18,6 @@ const client = new Client({
   port: 5432,
 });
 
-client.connect((err) => {
-  if (err) {
-    console.error('Error connecting to database:', err.stack);
-    return;
-  }
-  console.log('Connected to database.');
-});
 
 //-----------------------------
 
